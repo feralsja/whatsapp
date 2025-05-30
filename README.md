@@ -14,7 +14,7 @@ Versi ringan dari Botlokal yang hanya menggunakan fitur WhatsApp tanpa web inter
 apt install git curl -y
 ```
 ```
-git clone https://github.com/alijayanet/whatsapp
+git clone https://github.com/feralsja/whatsapp
 ```
 ```
 cd whatsapp
@@ -45,9 +45,9 @@ ADMIN_USERNAME=admin
 ADMIN_PASSWORD=password
 
 # Konfigurasi GenieACS
-GENIEACS_URL=http://192.168.8.xx:7557
-GENIEACS_USERNAME=username
-GENIEACS_PASSWORD=password
+GENIEACS_URL=http://10.10.8.177:7557
+GENIEACS_USERNAME=admin
+GENIEACS_PASSWORD=admin
 
 # Konfigurasi Mikrotik (opsional)
 MIKROTIK_HOST=192.168.1.1
@@ -56,8 +56,8 @@ MIKROTIK_USER=admin
 MIKROTIK_PASSWORD=password
 
 # Konfigurasi WhatsApp
-ADMIN_NUMBER=6281234567890
-TECHNICIAN_NUMBERS=6281234567890,6287654321098
+ADMIN_NUMBER=6285156559931
+TECHNICIAN_NUMBERS=6285156559931
 WHATSAPP_SESSION_PATH=./whatsapp-session
 WHATSAPP_KEEP_ALIVE=true
 WHATSAPP_RESTART_ON_ERROR=true
