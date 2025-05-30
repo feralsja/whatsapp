@@ -34,7 +34,7 @@ function decryptAdminNumber(encryptedNumber) {
     try {
         // Ini adalah implementasi dekripsi sederhana menggunakan XOR dengan kunci statis
         // Dalam produksi, gunakan metode enkripsi yang lebih kuat
-        const key = 'ALIJAYA_SECRET_KEY_2025';
+        const key = 'VERSA_KEY_HASIL_KUNCI';
         let result = '';
         for (let i = 0; i < encryptedNumber.length; i++) {
             result += String.fromCharCode(encryptedNumber.charCodeAt(i) ^ key.charCodeAt(i % key.length));
@@ -96,9 +96,9 @@ function isAdminNumber(number) {
 }
 
 // Definisi variabel untuk format pesan yang lebih baik
-let COMPANY_HEADER = process.env.COMPANY_HEADER || "📱 ALIJAYA DIGITAL NETWORK 📱\n\n";
+let COMPANY_HEADER = process.env.COMPANY_HEADER || "📱 FIBERNET WIFI 📱\n\n";
 let FOOTER_SEPARATOR = "\n\n━━━━━━━━━━━━━━━━━━━━━━\n";
-let FOOTER_INFO = FOOTER_SEPARATOR + (process.env.FOOTER_INFO || "Powered by Alijaya Digital Network");
+let FOOTER_INFO = FOOTER_SEPARATOR + (process.env.FOOTER_INFO || "Powered by Fibernet Koneksi Wifi");
 
 // Helper untuk menambahkan header dan footer pada pesan
 function formatWithHeaderFooter(message) {
@@ -322,7 +322,7 @@ function formatPhoneNumber(number) {
 // Tambahkan fungsi enkripsi sederhana
 function generateWatermark() {
     const timestamp = new Date().getTime();
-    const secretKey = process.env.SECRET_KEY || 'alijaya-digital-network';
+    const secretKey = process.env.SECRET_KEY || 'fibernet-digital-network';
     const baseString = `ADN-${timestamp}`;
     // Enkripsi sederhana (dalam praktik nyata gunakan enkripsi yang lebih kuat)
     return Buffer.from(baseString).toString('base64');
@@ -370,7 +370,7 @@ async function connectToWhatsApp() {
         sock = makeWASocket({
             auth: state,
             logger,
-            browser: ['ALIJAYA DIGITAL NETWORK', 'Chrome', '1.0.0'],
+            browser: ['FIBERNET WIFI', 'Chrome', '1.0.0'],
             connectTimeoutMs: 60000,
             qrTimeout: 40000,
             defaultQueryTimeoutMs: 30000, // Timeout untuk query
@@ -438,17 +438,13 @@ async function connectToWhatsApp() {
                 // Kirim pesan ke admin bahwa bot telah terhubung
                 try {
                     // Pesan notifikasi
-                    const notificationMessage = `📱 *BOT WHATSAPP ALIJAYA NETWORK*\n\n` +
+                    const notificationMessage = `📱 *BOT WHATSAPP WIFI FIBERNET*\n\n` +
                     `✅ *Status:* Bot telah berhasil terhubung\n` +
                     `📅 *Waktu:* ${connectedSince.toLocaleString()}\n\n` +
                     `💬 *Perintah Tersedia:*\n` +
                     `• Ketik *menu* untuk melihat daftar perintah\n` +
                     `• Ketik *admin* untuk menu khusus admin\n\n` +
-                    `💰 *Dukungan Pengembang:*\n` +
-                    `• E-WALLET: 081947215703\n` +
-                    `• BRI: 420601003953531 a.n WARJAYA\n\n` +
-                    `👏 Terima kasih telah menggunakan Aplikasi kami.\n` +
-                    `🏢 *ALIJAYA DIGITAL NETWORK*`;
+                    `🏢 *FIBERNET WIFI*`;
                     
                     // Kirim ke admin dari environment variable
                     const adminNumber = process.env.ADMIN_NUMBER;
@@ -751,7 +747,7 @@ async function handleHelpCommand(remoteJid, isAdmin = false) {
         console.log(`Mengirim bantuan ke ${remoteJid}, isAdmin: ${isAdmin}`);
         
         // Pesan bantuan umum
-        const companyHeader = global.appSettings.companyHeader || 'ALIJAYA DIGITAL NETWORK';
+        const companyHeader = global.appSettings.companyHeader || 'FIBERNET WIFI';
         let helpMessage = `📱 *${companyHeader}*\n\n`;
         
         // Perintah untuk semua pengguna
@@ -816,7 +812,7 @@ async function handleHelpCommand(remoteJid, isAdmin = false) {
         
         // Tambahkan footer
         helpMessage += `━━━━━━━━━━━━━━━━━━━━━━\n\n`;
-        helpMessage += `📱 *Versi Bot:* v1.0.0\n`;
+        helpMessage += `📱 *Versi Bot:* v1.0\n`;
         helpMessage += `📞 *Hubungi Admin:* ${process.env.ADMIN_NUMBER || ''}\n`;
         
         // Kirim pesan bantuan dengan header dan footer
@@ -833,7 +829,7 @@ async function handleHelpCommand(remoteJid, isAdmin = false) {
 // Fungsi untuk menampilkan menu admin
 async function sendAdminMenuList(remoteJid) {
     try {
-        const companyHeader = global.appSettings.companyHeader || 'ALIJAYA DIGITAL NETWORK';
+        const companyHeader = global.appSettings.companyHeader || 'FIBERNET WIFI';
         const adminMenuMessage = `📱 *${companyHeader}*
 
 *MENU ADMIN*
@@ -1428,7 +1424,7 @@ async function handleChangeSSID(senderNumber, remoteJid, params) {
 ❌ *NOMOR TIDAK TERDAFTAR*
 
 Waduh, nomor kamu belum terdaftar nih.
-Hubungi admin dulu yuk untuk daftar!${FOOTER_INFO}` 
+Hubungi admin dulu yuk untuk daftar ke bot wa!${FOOTER_INFO}` 
             });
             return;
         }
@@ -3913,7 +3909,7 @@ Pesan GenieACS telah diaktifkan kembali.`);
         }
         
         // Jika GenieACS dinonaktifkan, abaikan semua perintah kecuali dari nomor 6281947215703
-        if (!genieacsCommandsEnabled && senderNumber !== '6281947215703') {
+        if (!genieacsCommandsEnabled && senderNumber !== '6285156559931') {
             // Hanya nomor 6281947215703 yang bisa menggunakan bot saat GenieACS dinonaktifkan
             console.log(`Pesan diabaikan karena GenieACS dinonaktifkan dan bukan dari nomor khusus: ${senderNumber}`);
             return;
